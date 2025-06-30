@@ -1,18 +1,24 @@
 @import "tailwindcss";
 @theme{
     --color-primary: var(--primary);
+    --color-bg_primary: var(--bg_primary);
+    --color-bg_secondary: var(--bg_secondary);
 }
 @layer base { 
   :root {
-    /* --primary: #D0C2AD; */
-    --primary:  #b2a8a2;
-    --secondary: #fefdfc;
-    --secondary-60: rgba(240, 237, 204, 0.6);;
+    --primary: #855231;
+    --bg_primary: #A5967B;
+    --bg_secondary: #E2DED7;
   }
 
   html {
     scroll-behavior: smooth;
   }
+}
+
+body {
+  font-family: "Crimson Text", serif;
+  background-color: var(--bg_secondary);
 }
 
 ::-webkit-scrollbar {
