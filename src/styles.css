@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@theme{
+    --color-primary: var(--primary);
+}
+@layer base { 
+  :root {
+    /* --primary: #D0C2AD; */
+    --primary:  #b2a8a2;
+    --secondary: #fefdfc;
+    --secondary-60: rgba(240, 237, 204, 0.6);;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+}
+
+.button {
+  transition: all 0.3s ease-in-out;
+}
+.button:hover {
+  cursor: pointer;
+}
+.button:active {
+  transform: scale(0.9);
+}
