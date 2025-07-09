@@ -8,7 +8,8 @@
   :root {
     --primary: #855231;
     --bg_primary: #A5967B;
-    --bg_secondary: #E2DED7;
+    --bg_secondary: white;
+    /* --bg_secondary: #E2DED7; */
   }
 
   html {
