@@ -12,56 +12,24 @@
             </p>
         </div>
         <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <!-- product 1 -->
-            <div class="rounded-lg p-5 bg-white border-bg_primary/30 hover:shadow-md shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.2)] transition-all shadow-bg_primary border flex flex-col gap-3 flex-1">
-                <img src="images/home/glass-5.jpg" alt="" class="rounded-sm object-cover w-full h-[80%] max-h-[12rem]">
+            <!-- products -->
+            <div *ngFor="let product of products" class="rounded-lg p-5 bg-white border-bg_primary/30 hover:shadow-md shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.2)] transition-all shadow-bg_primary border flex flex-col gap-3 flex-1">
+                <img [src]="product.image" alt="" class="rounded-sm object-cover w-full h-[80%] max-h-[12rem]">
                 <div class="flex justify-between">
-                    <h4 class="font-semibold text-lg">Daltson Glossy </h4><span>$120.00</span>
+                    <h4 class="font-semibold text-lg">{{product.title}} </h4><span>${{product.rate}}</span>
                 </div>
-                <p class="text-sm lg:text-[16px] h-auto">Intense Rust </p>
-            </div>
-            <!-- product 2 -->
-            <div class="rounded-lg p-5 bg-white border-bg_primary/30 hover:shadow-md shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.2)] transition-all shadow-bg_primary border flex flex-col gap-3 flex-1">
-                <img src="images/home/glass-6.jpg" alt="" class="rounded-sm object-cover w-full h-[80%] max-h-[12rem]">
-                <div class="flex justify-between">
-                    <h4 class="font-semibold text-lg">Daltson Glossy </h4><span>$120.00</span>
-                </div>
-                <p class="text-sm lg:text-[16px] h-auto">Intense Rust </p>
+                <p class="text-sm lg:text-[16px] h-auto">{{product.description}}</p>
             </div>
         </div>
         <!-- products with 4 span  -->
         <div class="lg:col-span-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            <!-- product 3 -->
-            <div class="rounded-lg p-5 bg-white border-bg_primary/30 hover:shadow-md shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.2)] transition-all shadow-bg_primary border flex flex-col gap-3 flex-1">
-                <img src="images/home/glass-1.jpg" alt="" class="rounded-sm object-cover w-full h-[80%] max-h-[12rem]">
+            <!-- products -->
+            <div *ngFor="let product of products2" class="rounded-lg p-5 bg-white border-bg_primary/30 hover:shadow-md shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.2)] transition-all shadow-bg_primary border flex flex-col gap-3 flex-1">
+                <img [src]="product.image" alt="" class="rounded-sm object-cover w-full h-[80%] max-h-[12rem]">
                 <div class="flex justify-between">
-                    <h4 class="font-semibold text-lg">Daltson Glossy </h4><span>$120.00</span>
+                    <h4 class="font-semibold text-lg">{{product.title}} </h4><span>${{product.rate}}</span>
                 </div>
-                <p class="text-sm lg:text-[16px] h-auto">Intense Rust</p>
-            </div>
-            <!-- product 4 -->
-            <div class="rounded-lg p-5 bg-white border-bg_primary/30 hover:shadow-md shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.2)] transition-all shadow-bg_primary border flex flex-col gap-3 flex-1">
-                <img src="images/home/glass-2.jpg" alt="" class="rounded-sm object-cover w-full h-[80%] max-h-[12rem]">
-                <div class="flex justify-between">
-                    <h4 class="font-semibold text-lg">Daltson Glossy </h4><span>$120.00</span>
-                </div>
-                <p class="text-sm lg:text-[16px] h-auto">Intense Rust </p>
-            </div>
-            <!-- product 5 -->
-            <div class="rounded-lg p-5 bg-white border-bg_primary/30 hover:shadow-md shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.2)] transition-all shadow-bg_primary border flex flex-col gap-3 flex-1">
-                <img src="images/home/glass-3.jpg" alt="" class="rounded-sm object-cover w-full h-[80%] max-h-[12rem]">
-                <div class="flex justify-between">
-                    <h4 class="font-semibold text-lg">Daltson Glossy </h4><span>$120.00</span>
-                </div>
-                <p class="text-sm lg:text-[16px] h-auto">Intense Rust </p>
-            </div>
-            <!-- product 6 -->
-            <div class="rounded-lg p-5 bg-white border-bg_primary/30 hover:shadow-md shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.2)] transition-all shadow-bg_primary border flex flex-col gap-3 flex-1">
-                <img src="images/home/glass-4.jpg" alt="" class="rounded-sm object-cover w-full h-[80%] max-h-[12rem]">
-                <div class="flex justify-between">
-                    <h4 class="font-semibold text-lg">Daltson Glossy </h4><span>$120.00</span>
-                </div>
-                <p class="text-sm lg:text-[16px] h-auto">Intense Rust </p>
+                <p class="text-sm lg:text-[16px] h-auto">{{product.description}}</p>
             </div>
         </div>
     </div>
