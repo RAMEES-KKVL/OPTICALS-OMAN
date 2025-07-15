@@ -3,6 +3,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { OurSpacesComponent } from './components/our-spaces/our-spaces.component';
 import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
+import { CategoryComponent } from './components/category/category.component';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,7 @@ import { TestimonialsComponent } from './components/testimonials/testimonials.co
     BannerComponent,
     OurSpacesComponent,
     FeaturedProductsComponent,
+    CategoryComponent,
     TestimonialsComponent
   ],
   templateUrl: './home.component.html',

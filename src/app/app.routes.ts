@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: "contact-us",
+    path: "",
     loadComponent: () =>import("./user-layout/pages/home/home.component").then((m) => m.HomeComponent)
   },
   {
@@ -10,7 +10,7 @@ export const routes: Routes = [
     loadComponent: () =>import("./user-layout/pages/about/about.component").then((m) => m.AboutComponent)
   },
   {
-    path: "",
+    path: "contact-us",
     loadComponent: () =>import("./user-layout/pages/contact/contact.component").then((m) => m.ContactComponent)
   },
 ];

@@ -1,8 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-banner',
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './banner.component.html',
   styleUrl: './banner.component.css'
 })
