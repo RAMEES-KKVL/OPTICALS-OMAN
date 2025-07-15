@@ -1,0 +1,32 @@
+.floating-input {
+    width: 100%;
+    padding: 1rem 0 0.5rem; 
+    font-size: 1rem;
+    color: white; 
+    background-color: transparent;
+    appearance: none; 
+    border: none;
+    border-bottom: 2px solid #d1d5db;
+    outline: none;
+}
+
+.floating-input:focus {
+    box-shadow: none; 
+    border-bottom-color: var(--primary);
+}
+
+.floating-label {
+    position: absolute;
+    color: #ffffff;
+    transform-origin: left;
+    top: 1rem;
+    left: 0;
+    z-index: 50;
+    transition: all 200ms ease-in-out; 
+}
+
+.peer:focus ~ .floating-label {
+    transform: translateY(-1.5rem); 
+    font-size: 0.875rem; 
+    color: rgba(255, 255, 255, 0.748);
+}
