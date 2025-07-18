@@ -1,0 +1,10 @@
+<section class="marquee-container w-full py-3 bg-bg_primary text-white overflow-hidden">
+  <div #marqueeContent class="marquee-content flex">
+    <div class="marquee-group flex shrink-0 items-center justify-around gap-10">
+      <div *ngFor="let content of contents" class="flex items-center gap-10">
+        <span class="whitespace-nowrap">{{ content }}</span>
+        <img src="images/home/Shape.svg" alt="" class="w-6 shrink-0">
+      </div>
+    </div>
+  </div>
+</section>

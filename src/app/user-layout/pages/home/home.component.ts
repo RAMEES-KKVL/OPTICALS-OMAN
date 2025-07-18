@@ -4,6 +4,7 @@ import { OurSpacesComponent } from './components/our-spaces/our-spaces.component
 import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { CategoryComponent } from './components/category/category.component';
+import { ScrollerComponent } from '../../../shared/components/scroller/scroller.component';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +13,12 @@ import { CategoryComponent } from './components/category/category.component';
     OurSpacesComponent,
     FeaturedProductsComponent,
     CategoryComponent,
+    ScrollerComponent,
     TestimonialsComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+  
 }
