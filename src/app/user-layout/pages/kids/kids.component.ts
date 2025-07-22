@@ -10,5 +10,24 @@ import { CategoriesComponent } from "./components/categories/categories.componen
   styleUrl: './kids.component.css'
 })
 export class KidsComponent {
-
+  products = [
+    "images/home/glass-3.jpg",
+    "images/home/glass-4.jpg",
+    "images/home/glass-4.jpg",
+    "images/home/glass-5.jpg",
+    "images/home/glass-6.jpg",
+    "images/home/glass-2.jpg",
+    "images/home/glass-3.jpg",
+    "images/home/glass-4.jpg",
+    "images/home/glass-5.jpg",
+    "images/home/glass-6.jpg",
+    "images/home/glass-2.jpg",
+    "images/home/glass-3.jpg",
+    "images/home/glass-4.jpg",
+    "images/home/glass-5.jpg",
+    "images/home/glass-6.jpg",
+    "images/home/glass-2.jpg",
+    "images/home/glass-3.jpg",
+    "images/home/glass-4.jpg",
+  ]
 }  

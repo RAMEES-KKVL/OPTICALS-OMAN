@@ -13,33 +13,13 @@ export class CategoriesComponent {
   @ViewChild('imageContainer') imageContainer!: ElementRef;
   showLeftButton = false;
   showRightButton = true;
-  @Input() title = ""
+  @Input() title:any = ""
 
-  products = [
-    "images/home/glass-3.jpg",
-    "images/home/glass-4.jpg",
-    "images/home/glass-4.jpg",
-    "images/home/glass-5.jpg",
-    "images/home/glass-6.jpg",
-    "images/home/glass-2.jpg",
-    "images/home/glass-3.jpg",
-    "images/home/glass-4.jpg",
-    "images/home/glass-5.jpg",
-    "images/home/glass-6.jpg",
-    "images/home/glass-2.jpg",
-    "images/home/glass-3.jpg",
-    "images/home/glass-4.jpg",
-    "images/home/glass-5.jpg",
-    "images/home/glass-6.jpg",
-    "images/home/glass-2.jpg",
-    "images/home/glass-3.jpg",
-    "images/home/glass-4.jpg",
-  ]
+  @Input() products: any
 
   ngAfterViewInit(): void {
     setTimeout(() => this.checkScroll(), 0);
   }
-
 
   scroll(direction: 'left' | 'right'): void {
     const scrollAmount = 364; 
