@@ -2,18 +2,18 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-categories',
+  selector: 'app-product-categories',
   imports: [
     CommonModule
   ],
-  templateUrl: './categories.component.html',
-  styleUrl: './categories.component.css'
+  templateUrl: './product-categories.component.html',
+  styleUrl: './product-categories.component.css'
 })
-export class CategoriesComponent {
+export class ProductCategoriesComponent {
   @ViewChild('imageContainer') imageContainer!: ElementRef;
   showLeftButton = false;
   showRightButton = true;
-  @Input() title:any = ""
+  @Input() title:any = "Demo Title"
   @Input() products: any
 
   ngAfterViewInit(): void {
