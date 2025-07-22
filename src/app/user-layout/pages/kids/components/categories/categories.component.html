@@ -1,0 +1,27 @@
+<section class="text-primary mt-[2rem] max-w-[2000px] mx-auto relative mb-20">
+    <div class="absolute w-full h-8 lg:h-10 bg-bg_primary top-[25%] lg:top-[25%] -z-10"></div>
+    <div class="w-full px-[1rem] lg:px-[3rem] flex items-center justify-between">
+        <h3 class="text-2xl lg:text-4xl uppercase">{{title}}</h3>
+    </div>
+    <div class="mt-5 px-[1rem] lg:px-[3rem] flex relative">
+        <div class="flex gap-3 lg:gap-5 overflow-auto">
+            <div class="relative transition-all duration-300 hidden md:block" [ngClass]="{'translate-x-[-2rem]': !showRightButton}">
+                <button [ngClass]="{'hidden': !showRightButton}" class="md:mt-7.5 lg:mt-7.5 xl:mt-11 button text-white" (click)="scroll('right')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" stroke="" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+            </div>
+            <div #imageContainer (scroll)="checkScroll()" class="flex gap-3 lg:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory">
+                <img *ngFor="let product of products" [src]="product" alt="" class="min-w-70 xl:min-w-86 aspect-29/30 rounded-sm object-cover">
+            </div>
+            <div class="relative transition-all duration-300 hidden md:block" [ngClass]="{'translate-x-[2rem]': !showLeftButton}">
+                <button [ngClass]="{'hidden': !showLeftButton}" class="md:mt-7.5 lg:mt-7.5 xl:mt-11 button text-white rotate-180" (click)="scroll('left')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" stroke="" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div> 
+</section>

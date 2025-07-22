@@ -9,10 +9,4 @@ import { Component } from '@angular/core';
   templateUrl: './featured-items.component.html',
   styleUrl: './featured-items.component.css'
 })
-export class FeaturedItemsComponent {
-  showImages = false; 
-
-  toggleImages(): void {
-    this.showImages = !this.showImages;
-  }
-}
+export class FeaturedItemsComponent {}
