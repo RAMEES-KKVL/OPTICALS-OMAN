@@ -1,25 +1,30 @@
-<section class="px-[1rem] lg:px-[3rem] text-white mt-[2rem] max-w-[2000px] mx-auto">
+<section class="px-[1rem] pb-10 lg:px-[3rem] text-white mt-[2rem] max-w-[2000px] mx-auto">
     <div class="bg-bg_primary rounded-2xl p-[1rem] lg:px-[3rem] lg:py-[2rem] flex justify-between gap-3 items-end">
         <h3 class="text-3xl lg:text-4xl leading-7.5 font-bold md:min-w-[18rem]">Our Spaces <br>
         <span class="font_2 text-xl lg:text-2xl ml-5 font-normal lg:ml-8">Not Just Places - Experiences</span></h3>
         <div class="md:flex gap-3 hidden">
             <p class="max-w-sm lg:max-w-md text-sm lg:text-[16px]">Discover our best-selling frames, combining style and comfort for a perfect fit in every pair.</p>
             <div class="flex gap-2">
-                <button class="button"><img src="images/home/Arrow Icon.svg" class="bg-white/50 rounded-full p-[5px] rotate-180" alt=""></button>
-                <button class="button"><img src="images/home/Arrow Icon.svg" class="bg-white rounded-full p-[5px]" alt=""></button>
+                <button (click)="scrollPrev()" [disabled]="disablePrev" class="button"><img src="images/home/Arrow Icon.svg" class="bg-white rounded-full p-[5px] rotate-180" alt=""></button>
+                <button (click)="scrollNext()" [disabled]="disableNext" class="button"><img src="images/home/Arrow Icon.svg" class="bg-white rounded-full p-[5px]" alt=""></button>
             </div>
         </div>
     </div>
-    <div class="sm:flex gap-3 overflow-x-auto">
+    <div #scrollContainer class="sm:flex gap-3 overflow-x-auto scroll-smooth">
         <div *ngFor="let shop of shops" class="relative my-[1rem] min-w-[21rem] sm:min-w-[30rem] max-h-[32rem] min-h-[25rem] lg:min-h-[28rem] flex items-end">
             <img [src]="shop.image" alt="" class="absolute w-full h-full rounded-2xl object-cover aspect-square">
             <div class="absolute inset-0 bg-black/60 rounded-2xl"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-primary/25 to-transparent via-transparent rounded-2xl"></div>
             <div class="relative flex p-6 flex-col gap-3 items-start">
-                <h3 class="text-2xl lg:text-3xl font-semibold uppercase">{{shop.title}}</h3>
+                <h3 class="text-2xl lg:text-3xl uppercase">{{shop.title}}</h3>
                 <p class="text-sm lg:text-[16px]">{{shop.description}}</p>
-                <button class="button bg-white text-primary pl-4  font-semibold py-0 rounded-full flex items-center gap-5">Explore In-Store <img src="images/home/Vector.svg" class="rounded-full p-[5px]" alt=""></button>
+                <button (click)="openMap(shop.shopMap)" class="button bg-white text-primary pl-4  font-semibold py-0 rounded-full flex items-center gap-5">Explore In-Store <img src="images/home/Vector.svg" class="rounded-full p-[5px]" alt=""></button>
             </div>
         </div>
-    </div>
+    </div> 
+</section>
+
+
+<section *ngIf="mapUrl" (click)="mapUrl = ''" class="fixed inset-0 p-[1rem] lg:px-[3rem] flex justify-center items-center bg-black/60 z-20">
+    <iframe [src]="mapUrl | safeUrl" class="rounded-2xl w-full max-w-[70rem] h-[80%] aspect-square" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>

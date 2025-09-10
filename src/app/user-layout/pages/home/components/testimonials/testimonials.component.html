@@ -1,4 +1,4 @@
-<section class="px-[1rem] lg:px-[3rem] text-primary mt-[2rem] max-w-[2000px] mx-auto overflow-hidden">
+<section class="px-[1rem] pb-10 lg:px-[3rem] text-primary mt-[2rem] max-w-[2000px] mx-auto">
     <div class="bg-bg_primary w-full p-4 sm:px-8 sm:py-12 rounded-2xl">
         <div class="text-white flex flex-col lg:flex-row gap-3 items-center justify-between max-w-[34rem] lg:max-w-full mx-auto mb-8 lg:mb-10">
             <h5 class="mb-auto">TESTIMONIALS</h5>
@@ -7,18 +7,22 @@
             <div class="flex flex-col w-full lg:flex-row lg:w-max gap-3 lg:gap-5">
                 <p class="mx-auto max-w-sm lg:max-w-[15rem] xl:min-w-[20rem] text-sm lg:text-[16px] text-center lg:text-start">Discover how our eyewear has transformed the look and comfort for our customers.</p>
                 <div class="flex gap-2 self-end">
-                    <button class="button"><img src="images/home/Arrow Icon.svg" class="bg-white/50 rounded-full p-[5px] rotate-180" alt=""></button>
-                    <button class="button"><img src="images/home/Arrow Icon.svg" class="bg-white rounded-full p-[5px]" alt=""></button>
+                    <button (click)="prevTestimonial()" [disabled]="transitioning" class="button disabled:opacity-50"><img src="images/home/Arrow Icon.svg" class="bg-white rounded-full p-[5px] rotate-180" alt=""></button>
+                    <button (click)="nextTestimonial()" [disabled]="transitioning" class="button disabled:opacity-50"><img src="images/home/Arrow Icon.svg" class="bg-white rounded-full p-[5px]" alt=""></button>
                 </div>
             </div>
         </div>
-        <div class="flex sm:items-center pt-5 sm:pt-0 gap-5 sm:gap-10 overflow-x-auto">
-            <div *ngFor="let testimonial of testimonials; let i = index" [ngClass]="{'sm:min-w-[35rem] sm:py-16 sm:pr-15': i === 0}" class="min-w-[19.4rem] sm:min-w-[30rem] sm:translate-x-[1.75rem] px-5 bg-[#D6D2CB] rounded-md flex flex-col sm:flex-row sm:py-6 gap-5 sm:gap-8 items-center">
-                <img [src]="testimonial.image" alt="" [ngClass]="{'sm:translate-x-[-3rem] sm:w-[14rem]': i === 0}" class="object-cover -translate-y-[1.2rem] sm:translate-y-0 aspect-6/5 w-[11rem] rounded-md">
-                <div [ngClass]="{'sm:translate-x-[-2.5rem]': i === 0}" class="flex flex-col gap-3 sm:gap-5 sm:translate-y-0 -translate-y-[1.2rem]">
-                    <img src="images/home/testimonial_icon.svg" alt="" class="w-6">
-                    <p class="text-sm lg:text-[16px] h-[6rem] overflow-auto">"{{testimonial.review}}"</p>
-                    <h5 class="font-semibold text-lg lg:text-xl">{{testimonial.author}}</h5>
+        <div class="overflow-hidden">
+            <div class="flex sm:items-center pt-5 sm:pt-0 gap-5 sm:gap-10 testimonial-track" 
+                 [class.slide-next]="direction === 'next'"
+                 [class.slide-prev]="direction === 'prev'">
+                <div *ngFor="let testimonial of testimonials; let i = index" [ngClass]="{'sm:min-w-[35rem] sm:py-16 sm:pr-15': i === 0}" class="min-w-[19.4rem] sm:min-w-[30rem] sm:translate-x-[1.75rem] px-5 bg-[#D6D2CB] rounded-md flex flex-col sm:flex-row sm:py-6 gap-5 sm:gap-8 items-center transition-all">
+                    <img [src]="testimonial.image" alt="" [ngClass]="{'sm:translate-x-[-3rem] sm:w-[14rem]': i === 0}" class="object-cover -translate-y-[1.2rem] sm:translate-y-0 aspect-6/5 w-[11rem] rounded-md">
+                    <div [ngClass]="{'sm:translate-x-[-2.5rem]': i === 0}" class="flex flex-col gap-3 sm:gap-5 sm:translate-y-0 -translate-y-[1.2rem]">
+                        <img src="images/home/testimonial_icon.svg" alt="" class="w-6">
+                        <p class="text-sm lg:text-[16px] h-[6rem] overflow-auto">"{{testimonial.review}}"</p>
+                        <h5 class="font-semibold text-lg lg:text-xl">{{testimonial.author}}</h5>
+                    </div>
                 </div>
             </div>
         </div>

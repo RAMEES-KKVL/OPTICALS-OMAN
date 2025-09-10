@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
     CommonModule
   ],
   templateUrl: './testimonials.component.html',
-  styleUrl: './testimonials.component.css'
+  styleUrl: './testimonials.component.css',
 })
 export class TestimonialsComponent {
   testimonials = [
@@ -26,5 +26,67 @@ export class TestimonialsComponent {
       author: "Raoof P",
       image: "images/home/glass-3.jpg"
     },
+    {
+      review: "Stylish and incredibly lightweight. I can wear them all day without feeling any pressure on my nose or ears.",
+      author: "Muhammed K",
+      image: "images/home/glass-1.jpg"
+    },
+    {
+      review: "Absolutely love the design! They match every outfit and make me feel more confident instantly.",
+      author: "Suhail K",
+      image: "images/home/glass-4.jpg"
+    },
+    {
+      review: "I’ve tried many brands, but these frames stand out for their build quality and premium feel.",
+      author: "Shahal Shah",
+      image: "images/home/glass-3.jpg"
+    },
+    {
+      review: "My eyes don’t feel tired even after long hours of screen time. These lenses are a game changer.",
+      author: "Fathima M",
+      image: "images/home/glass-1.jpg"
+    },
+    {
+      review: "Comfort meets elegance! I didn’t think glasses could look this good and feel this comfortable.",
+      author: "Noora",
+      image: "images/home/glass-4.jpg"
+    }
   ]
+
+  transitioning = false;
+  direction: 'next' | 'prev' | null = null;
+  animationDuration = 500; 
+
+  nextTestimonial() {
+    if (this.transitioning) return;
+
+    this.transitioning = true;
+    this.direction = 'next';
+
+    setTimeout(() => {
+      const first = this.testimonials.shift();
+      if (first) {
+        this.testimonials.push(first);
+      }
+      this.direction = null; 
+      this.transitioning = false;
+    }, this.animationDuration);
+  }
+
+  prevTestimonial() {
+    if (this.transitioning) return;
+    
+    const last = this.testimonials.pop();
+    if (last) {
+      this.testimonials.unshift(last);
+    }
+    
+    this.transitioning = true;
+    this.direction = 'prev';
+
+    setTimeout(() => {
+      this.direction = null;
+      this.transitioning = false;
+    }, this.animationDuration);
+  }
 }

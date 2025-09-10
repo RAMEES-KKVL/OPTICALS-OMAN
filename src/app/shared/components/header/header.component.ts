@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
   selector: 'app-header',
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'

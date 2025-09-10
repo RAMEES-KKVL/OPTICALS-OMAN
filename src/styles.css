@@ -17,6 +17,16 @@
   }
 }
 
+:root {
+    --slide-distance: -20.65rem;
+}
+
+@media (min-width: 640px) {
+    :root {
+        --slide-distance: -32.5rem;
+    }
+}
+
 body {
   font-family: "Archivo", serif;
   background-color: var(--bg_secondary);

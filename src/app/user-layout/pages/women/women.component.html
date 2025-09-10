@@ -1,0 +1,16 @@
+<app-category-banner bannerImg="images/services/women-banner.jpg"></app-category-banner>
+<section class="text-primary mt-[2rem] max-w-[2000px] mx-auto relative flex gap-3 pb-10">
+    <div class="px-[1rem] lg:px-[3rem]">
+        <h3 class="text-2xl lg:text-4xl mb-5">FEATURED ITEMS</h3>
+        <div class="grid grid-cols-3 relative">
+            <img src="images/services/women-featured-1.jpg" alt="" class="object-cover aspect-6/7 object-top rounded-l-2xl">
+            <img src="images/services/women-featured-5.jpeg" alt="" class="object-cover aspect-6/7 object-top">
+            <img src="images/services/women-featured-3.jpg" alt="" class="object-cover aspect-6/7 object-top rounded-r-2xl">
+            <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent via-transparent rounded-b-2xl"></div>
+        </div>
+    </div>
+</section>
+<app-product-categories [products]="products" [title]="'Sunglasses'"></app-product-categories>
+<app-product-categories [products]="products" [title]="'COMPUTER GLASSES'"></app-product-categories>
+<app-product-categories [products]="products" [title]="'READING GLASSES'"></app-product-categories>
