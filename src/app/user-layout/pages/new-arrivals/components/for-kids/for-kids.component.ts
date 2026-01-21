@@ -1,37 +1,27 @@
 import { Component } from '@angular/core';
 import { ScrollerComponent } from "../../../../../shared/components/scroller/scroller.component";
 import { CommonModule } from '@angular/common';
+import { BackendService } from '../../../../../services/backend.service';
+import { RouterLink } from '@angular/router';
+import { environments } from '../../../../../../../environments/environment';
 
 @Component({
   selector: 'app-for-kids',
-  imports: [ScrollerComponent, CommonModule],
+  imports: [ScrollerComponent, RouterLink, CommonModule],
   templateUrl: './for-kids.component.html',
   styleUrl: './for-kids.component.css'
 })
 export class ForKidsComponent {
-  glasses = [
-    "images/kids/eye-5.jpg",
-    "images/kids/eye-3.jpg",
-    "images/kids/eye-6.webp",
-    "images/kids/eye-8.webp",
-    "images/kids/eye-7.jpg",
-    "images/kids/eye-4.webp",
-    "images/kids/eye-2.webp",
-    "images/kids/reading-5.webp",
-    "images/kids/reading-1.webp",
-    "images/kids/reading-2.jpg",
-    "images/kids/reading-3.webp",
-    "images/kids/reading-4.jpg",
-    "images/kids/reading-6.jpg",
-    "images/kids/reading-7.webp",
-    "images/kids/reading-8.jpg",
-    "images/kids/computer-3.webp",
-    "images/kids/computer-5.webp",
-    "images/kids/computer-1.jpg",
-    "images/kids/computer-2.webp",
-    "images/kids/computer-4.webp",
-    "images/kids/computer-6.webp",
-    "images/kids/computer-7.jpg",
-    "images/kids/computer-8.jpg",
-  ]
+  brand_1_kids = environments.brand_1_kids
+  products: any
+  constructor(private bs: BackendService) {}
+
+  ngOnInit() {
+    this.bs.getProductsByCategory(this.brand_1_kids).subscribe({
+      next: (res: any) => {
+        this.products = (res.data || []).sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+      },
+      error: (err) => {}
+    })
+  }
 }

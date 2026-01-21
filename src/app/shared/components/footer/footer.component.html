@@ -62,14 +62,20 @@
         <div class="lg:col-span-2">
           <h4 class="text-lg font-semibold mb-4 text-white">Stay Updated</h4>
           <p class="text-sm mb-4">Subscribe to our newsletter for the latest updates.</p>
-          <form class="space-y-3 flex gap-2">
+          <form (ngSubmit)="subscribe()" #newsForm="ngForm" class="space-y-3 flex gap-2">
             <input 
               type="email" 
+              name="email"
+              [(ngModel)]="email"
+              email
               placeholder="Enter your email"
               class="w-auto px-5 py-2 border border-white rounded-full text-white white/80 focus:outline-none text-sm"
             >
-            <button class="button h-max py-2 w-max bg-white text-primary px-5 rounded-full flex items-center gap-6">Subscribe</button>
+            <button type="submit" [disabled]="newsForm.invalid || isSubmitting" class="button h-max py-2 w-max bg-white text-primary px-5 rounded-full flex items-center gap-6">{{ isSubmitting ? 'Sending...' : 'Subscribe' }}</button>
           </form>
+          <p *ngIf="message" class="text-sm mt-3 text-white">
+            {{ message }}
+          </p>
         </div>
       </div>
     </div>

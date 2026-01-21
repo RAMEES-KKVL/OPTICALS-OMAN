@@ -13,24 +13,26 @@
         </div>
         <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
             <!-- products -->
-            <div *ngFor="let product of products" class="rounded-lg p-5 bg-white border-bg_primary/30 hover:shadow-md shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.2)] transition-all shadow-bg_primary border flex flex-col gap-3 flex-1">
-                <img [src]="product.image" alt="" class="rounded-sm object-cover w-full h-[80%] max-h-[12rem]">
+            <a *ngFor="let product of products" [routerLink]="['/product', product.slug]" class="rounded-lg p-5 cursor-pointer bg-bg_primary/5 border-bg_primary/30 hover:shadow-md hover:translate-y-[-10px] shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.2)] transition-all shadow-bg_primary border flex flex-col gap-3 flex-1">
+                <img [src]="product?.images?.[0]" alt="" class="rounded-sm border border-bg_primary/40 object-cover w-full h-[80%] max-h-[12rem]">
                 <div class="flex justify-between">
-                    <h4 class="font-semibold text-lg">{{product.title}} </h4><span>${{product.rate}}</span>
+                    <h4 class="font-semibold text-lg">{{product?.name}} </h4><span>₹{{product?.salePrice}}</span>
                 </div>
-                <p class="text-sm lg:text-[16px] h-auto">{{product.description}}</p>
-            </div>
+                <!-- <p class="text-sm lg:text-[16px] h-auto">{{product?.shortDescription}}</p> -->
+                <p class="text-sm lg:text-[16px] h-auto">{{product?.categoryId?.name}}</p>
+            </a>
         </div>
         <!-- products with 4 span  -->
         <div class="lg:col-span-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
             <!-- products -->
-            <div *ngFor="let product of products2" class="rounded-lg p-5 bg-white border-bg_primary/30 hover:shadow-md shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.2)] transition-all shadow-bg_primary border flex flex-col gap-3 flex-1">
-                <img [src]="product.image" alt="" class="rounded-sm object-cover w-full h-[80%] max-h-[12rem]">
+            <a *ngFor="let product of products2" [routerLink]="['/product', product.slug]" class="rounded-lg p-5 cursor-pointer bg-bg_primary/5 border-bg_primary/30 hover:shadow-md hover:translate-y-[-10px] shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.2)] transition-all shadow-bg_primary border flex flex-col gap-3 flex-1">
+                <img [src]="product?.images?.[0]" alt="" class="rounded-sm border border-bg_primary/40 object-cover w-full h-[80%] max-h-[12rem]">
                 <div class="flex justify-between">
-                    <h4 class="font-semibold text-lg">{{product.title}} </h4><span>${{product.rate}}</span>
+                    <h4 class="font-semibold text-lg">{{product?.name}} </h4><span>${{product?.salePrice}}</span>
                 </div>
-                <p class="text-sm lg:text-[16px] h-auto">{{product.description}}</p>
-            </div>
+                <p class="text-sm lg:text-[16px] h-auto">{{product?.shortDescription}}</p>
+                <p class="text-sm lg:text-[16px] h-auto">{{product?.categoryId?.name}}</p>
+            </a>
         </div>
     </div>
 </section>

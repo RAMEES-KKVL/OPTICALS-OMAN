@@ -2,73 +2,12 @@
     <div class="flex flex-col gap-5 rounded-2xl">
         <h3 class="text-4xl lg:text-[40px] font-semibold uppercase">Explore Our <br><span class="font_2 ml-40 font-normal">Spaces</span></h3>
         <div class="grid gap-5 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
-            <div class="relative">
-                <img src="images/about/shop-image-1.jpg" class="rounded-2xl" alt="">
+            <div class="relative" *ngFor="let shop of shops">
+                <img [src]="shop.image" class="rounded-2xl w-full h-full object-cover" alt="">
                 <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent rounded-2xl"></div>
-                <h4 class="absolute bottom-0 text-white p-5 text-center text-sm lg:text-[16px]">Al Seeb City Optics, Near shell pump Duqm, sultanate of Oman</h4>
-            </div>
-            <div class="relative">
-                <img src="images/about/shop-image-1.jpg" class="rounded-2xl" alt="">
-                <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent rounded-2xl"></div>
-                <h4 class="absolute bottom-0 text-white p-5 text-center text-sm lg:text-[16px]">Al Amri Opticals, Near shell pump Duqm, sultanate of Oman</h4>
-            </div>
-            <div class="relative">
-                <img src="images/about/shop-image-1.jpg" class="rounded-2xl" alt="">
-                <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent rounded-2xl"></div>
-                <h4 class="absolute bottom-0 text-white p-5 text-center text-sm lg:text-[16px]">Alseeb City Optics Duqm, Near shell pump Duqm, sultanate of Oman</h4>
-            </div>
-            <div class="relative">
-                <img src="images/about/shop-image-1.jpg" class="rounded-2xl" alt="">
-                <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent rounded-2xl"></div>
-                <h4 class="absolute bottom-0 text-white p-5 text-center text-sm lg:text-[16px]">Al Amri Opticals Falaj, Near shell pump Duqm, sultanate of Oman</h4>
-            </div>
-            <div class="relative">
-                <img src="images/about/shop-image-1.jpg" class="rounded-2xl" alt="">
-                <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent rounded-2xl"></div>
-                <h4 class="absolute bottom-0 text-white p-5 text-center text-sm lg:text-[16px]">Faisal Al Amri Seeb, Near shell pump Duqm, sultanate of Oman</h4>
-            </div>
-            <div class="relative">
-                <img src="images/about/shop-image-1.jpg" class="rounded-2xl" alt="">
-                <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent rounded-2xl"></div>
-                <h4 class="absolute bottom-0 text-white p-5 text-center text-sm lg:text-[16px]">Zain Opticals, Near shell pump Duqm, sultanate of Oman</h4>
+                <h4 class="absolute bottom-0 text-white p-5 text-center text-sm lg:text-[16px]">{{shop.name}} - {{shop.city}}</h4>
             </div>
         </div>
     </div>
 </section>
-<!-- <section class="px-[1rem] lg:px-[3rem] text-primary mt-[2rem] max-w-[2000px] mx-auto">
-    <div class="flex flex-col gap-5 sm:bg-bg_primary/30 rounded-2xl sm:p-10 lg:px-20">
-        <h3 class="text-4xl lg:text-[40px] font-semibold uppercase">Explore Our <br><span class="font_2 ml-40 font-normal">Spaces</span></h3>
-        <div class="grid gap-5 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">
-            <div class="relative">
-                <img src="images/about/shop-image-1.jpg" class="rounded-2xl" alt="">
-                <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent rounded-2xl"></div>
-                <h4 class="absolute bottom-0 text-white p-5 text-center text-sm lg:text-[16px]">Al seeb City Optics,Near shell pump Duqm, sultanate of Oman</h4>
-            </div>
-            <div class="relative">
-                <img src="images/about/shop-image-1.jpg" class="rounded-2xl" alt="">
-                <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent rounded-2xl"></div>
-                <h4 class="absolute bottom-0 text-white p-5 text-center text-sm lg:text-[16px]">Al seeb City Optics,Near shell pump Duqm, sultanate of Oman</h4>
-            </div>
-            <div class="relative">
-                <img src="images/about/shop-image-1.jpg" class="rounded-2xl" alt="">
-                <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent rounded-2xl"></div>
-                <h4 class="absolute bottom-0 text-white p-5 text-center text-sm lg:text-[16px]">Al seeb City Optics,Near shell pump Duqm, sultanate of Oman</h4>
-            </div>
-            <div class="relative">
-                <img src="images/about/shop-image-1.jpg" class="rounded-2xl" alt="">
-                <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent rounded-2xl"></div>
-                <h4 class="absolute bottom-0 text-white p-5 text-center text-sm lg:text-[16px]">Al seeb City Optics,Near shell pump Duqm, sultanate of Oman</h4>
-            </div>
-        </div>
-    </div>
-</section> -->

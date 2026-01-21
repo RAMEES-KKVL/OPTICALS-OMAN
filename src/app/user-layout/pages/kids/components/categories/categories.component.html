@@ -13,7 +13,27 @@
                 </button>
             </div>
             <div #imageContainer (scroll)="checkScroll()" class="flex gap-3 lg:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory">
-                <img *ngFor="let product of products" [src]="product" alt="" class="min-w-70 xl:min-w-86 aspect-29/30 rounded-sm object-cover">
+                <a [routerLink]="['/product', product.slug]" *ngFor="let product of products" class="relative group overflow-hidden min-w-84 max-w-86 lg:min-w-106 lg:max-w-108 aspect-[29/26] border cursor-pointer border-primary/20 rounded-lg transition-all duration-300">
+                    <img 
+                        [src]="product.images[0]"
+                        class="absolute w-full h-full object-cover"
+                        alt="Product"
+                    />
+                    <div class="absolute right-3 top-3 lg:right-[-60px] lg:group-hover:right-3 border border-bg_primary/40 transition-all duration-300 rounded-full px-[2px] py-[3px] flex flex-col gap-1 bg-black/20 backdrop-blur-md">
+                        <span class="w-5 h-5 rounded-full" *ngFor="let color of product.colors" [style.background]="color"></span>
+                    </div>
+
+                    <div class="absolute bg-black/20 backdrop-blur-md bottom-0 left-0 w-full px-3 lg:bottom-[-60px] lg:group-hover:bottom-0 transition-all duration-300 py-2 rounded-t-md border border-bg_primary/10 border-b-transparent flex justify-between gap-4">
+                        <h2 class="text-primary text-xl font-semibold leading-tight">
+                            {{product.name}}
+                        </h2>
+
+                        <div class="text-right flex gap-1">
+                            <div class="text-gray-400 text-primary line-through"></div>
+                            <div class="text-primary text-xl font-bold">₹{{product.salePrice}}</div>
+                        </div>
+                    </div>
+                </a>
             </div>
             <div class="relative transition-all duration-300 hidden md:block" [ngClass]="{'translate-x-[2rem]': !showLeftButton}">
                 <button [ngClass]="{'hidden': !showLeftButton}" class="md:mt-7.5 lg:mt-7.5 xl:mt-11 button text-white rotate-180" (click)="scroll('left')">

@@ -1,0 +1,210 @@
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div *ngIf="loading" class="flex justify-center items-center min-h-[400px]">
+        <div class="text-gray-600">Loading product details...</div>
+    </div>
+
+  <div *ngIf="!loading && !product" class="flex justify-center items-center min-h-[400px]">
+    <div class="text-center">
+      <p class="text-red-600 text-lg font-medium">Product not found</p>
+      <p class="text-gray-500 mt-2">The product you're looking for doesn't exist.</p>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && product">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+      <div class="space-y-4">
+        <div class="aspect-square relative bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
+          <img
+            class="w-full h-full object-cover"
+            [src]="selectedImage || product.images?.[0] || ''"
+            [alt]="product.name"
+          />
+          @if (product.isFeatured) {
+            <div class="absolute top-4 right-4 px-4 py-2 bg-gradient-to-r from-bg_primary/70 to-bg_primary text-white text-sm font-bold rounded-full shadow-lg flex items-center gap-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              Featured
+            </div>
+          }
+        </div>
+
+        <div *ngIf="product.images?.length > 1" class="flex gap-3 overflow-x-auto pb-2">
+          <button
+            type="button"
+            type="button"
+            *ngFor="let img of product.images"
+            (click)="selectedImage = img"
+            class="shrink-0 w-20 h-20 rounded-lg overflow-hidden border-3 transition-all"
+            [class.border-bg_primary]="selectedImage === img || (!selectedImage && img === product.images[0])"
+            [class.border-gray-200]="selectedImage !== img && (selectedImage || img !== product.images[0])"
+          >
+            <img
+              class="w-full h-full object-cover"
+              [src]="img"
+              [alt]="product.name"
+              />
+            </button>
+        </div>
+    </div>
+    
+    <div class="space-y-6">
+        
+        <div>
+          <div class="flex items-start justify-between gap-4 mb-2">
+            <h1 class="text-3xl font-bold text-gray-900">
+              {{ product.name }}
+            </h1>
+          </div>
+          
+          <p class="text-gray-600 text-base">
+            {{ product.shortDescription }}
+          </p>
+        </div>
+
+       
+        <div class="border-t border-b border-gray-200 py-4">
+          <div class="flex items-baseline gap-3">
+            <span class="text-4xl font-bold text-gray-900">
+              ₹{{ product.salePrice ?? product.price }}
+            </span>
+            
+            <span *ngIf="product.salePrice && product.salePrice < product.price"
+                  class="text-xl text-gray-400 line-through">
+              ₹{{ product.price }}
+            </span>
+            
+            <span *ngIf="product.salePrice && product.salePrice < product.price"
+                  class="px-2 py-1 bg-green-100 text-green-700 text-sm border border-green-300 font-semibold rounded">
+              Save ₹{{ product.price - product.salePrice }}
+            </span>
+          </div>
+
+         
+          <div class="mt-3">
+            <span
+              class="inline-flex items-center px-3 py-1 border rounded-full text-sm font-medium"
+              [class.bg-green-100]="product.stock > 0"
+              [class.text-green-700]="product.stock > 0"
+              [class.border-green-300]="product.stock > 0"
+              [class.bg-red-100]="product.stock <= 0"
+              [class.text-red-700]="product.stock <= 0"
+              [class.border-red-300]="product.stock <= 0"
+            >
+              <span *ngIf="product.stock > 0" class="mr-1">✓</span>
+              {{ product.stock > 0 ? 'In Stock (' + product.stock + ' available)' : 'Out of Stock' }}
+            </span>
+          </div>
+        </div>
+
+       
+        <div class="space-y-3">
+          <div class="flex items-center gap-2 text-sm">
+            <span class="text-gray-500 w-20">Brand:</span>
+            <span class="font-medium text-gray-900">{{ product.brandId?.name || 'N/A' }}</span>
+          </div>
+          <div class="flex items-center gap-2 text-sm">
+            <span class="text-gray-500 w-20">Category:</span>
+            <span class="font-medium text-gray-900">{{ product.categoryId?.name || 'N/A' }}</span>
+          </div>
+          <div class="flex items-center gap-2 text-sm">
+            <span class="text-gray-500 w-20">Type:</span>
+            <span class="font-medium text-gray-900">{{ product.subCategoryId?.name || 'N/A' }}</span>
+          </div>
+        </div>
+
+       
+        <div *ngIf="product.sizes?.length" class="space-y-2">
+          <label class="block text-sm font-medium text-gray-900">Available Sizes</label>
+          <div class="flex flex-wrap gap-2">
+            <button
+              type="button"
+              *ngFor="let size of product.sizes"
+              class="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-900 hover:border-gray-400"
+            >
+              {{ size }}
+            </button>
+          </div>
+        </div>
+
+       
+        <div *ngIf="product.colors?.length" class="space-y-2">
+          <label class="block text-sm font-medium text-gray-900">Available Colors</label>
+          <div class="flex flex-wrap gap-2">
+            <button
+              type="button"
+              *ngFor="let color of product.colors"
+              class="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-900 hover:border-gray-400"
+            >
+              <span 
+                class="w-5 h-5 rounded-full border border-gray-300"
+                [style.background]="color">
+              </span>
+
+              <span>{{ color }}</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-12 border-t border-gray-200 pt-8">
+          <div *ngIf="product.description" class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Description</h2>
+            <div class="prose max-w-none text-gray-700">
+              <p class="whitespace-pre-line">{{ product.description }}</p>
+            </div>
+          </div>
+    
+         
+          <div *ngIf="product.specifications" class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Specifications</h2>
+            <div class="bg-gray-50 rounded-lg border border-gray-200 overflow-hidden">
+              <table class="w-full">
+                <tbody>
+                  <tr
+                    *ngFor="let spec of (product.specifications | keyvalue); let i = index"
+                    [class.bg-white]="i % 2 === 0"
+                    [class.bg-gray-50]="i % 2 !== 0"
+                  >
+                    <td class="px-6 py-4 text-sm font-medium text-gray-900 w-1/3">
+                      {{ spec.key }}
+                    </td>
+                    <td class="px-6 py-4 text-sm text-gray-700">
+                      {{ spec.value }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="related?.length" class="mt-16 border-t border-gray-200 pt-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">You May Also Like</h2>
+
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+        <a *ngFor="let p of related" [routerLink]="['/product', p.slug]" class="relative group overflow-hidden aspect-[29/26] border cursor-pointer border-primary/20 rounded-lg transition-all duration-300">
+            <img 
+                [src]="p.images[0]"
+                class="absolute w-full h-full object-cover"
+                alt="Product"
+            />
+            <div class="absolute bg-white/60 backdrop-blur-md bottom-0 left-0 w-full px-3 lg:bottom-[-60px] lg:group-hover:bottom-0 transition-all duration-300 py-2 rounded-t-md border border-bg_primary/10 border-b-transparent flex justify-between gap-4">
+                <h2 class="text-primary text-xl font-semibold leading-tight">
+                    {{p.name}}
+                </h2>
+
+                <div class="text-right flex gap-1">
+                    <div class="text-gray-400 text-primary line-through"></div>
+                    <div class="text-primary text-xl font-bold">₹{{p.salePrice}}</div>
+                </div>
+            </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+</section>

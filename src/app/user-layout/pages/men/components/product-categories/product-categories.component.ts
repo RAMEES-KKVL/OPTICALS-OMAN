@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-categories',
   imports: [
-    CommonModule
+    CommonModule, RouterLink
   ],
   templateUrl: './product-categories.component.html',
   styleUrl: './product-categories.component.css'
@@ -13,11 +14,11 @@ export class ProductCategoriesComponent {
   @ViewChild('imageContainer') imageContainer!: ElementRef;
   showLeftButton = false;
   showRightButton = true;
-  @Input() title:any = "Demo Title"
-  @Input() products: any
+  @Input() title:any = "Demo Title";
+  @Input() products: any;
 
   ngAfterViewInit(): void {
-    setTimeout(() => this.checkScroll(), 0);
+    setTimeout(() => this.checkScroll(), 0);    
   }
 
   scroll(direction: 'left' | 'right'): void {

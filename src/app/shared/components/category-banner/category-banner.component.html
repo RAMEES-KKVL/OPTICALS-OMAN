@@ -4,27 +4,19 @@
         <div class="absolute inset-0 bg-black/50 lg:w-1/2 rounded-2xl"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent via-transparent lg:w-1/2 rounded-2xl"></div>
         <div class="relative lg:w-1/2 text-white text-center p-10 lg:p-20 flex lg:justify-between lg:h-full flex-col gap-5">
-            <h1 class="font-bold text-4xl lg:text-5xl font-serif">Elevate Your Look</h1>
+            <h1 class="font-bold text-3xl lg:text-4xl heading_font_2 uppercase">Elevate Your Look</h1>
             <p class="text-sm mx-auto lg:text-[18px] max-w-sm">Designed for bold personalities and everyday elegance, these shades are more than just eyewear — they’re a statement.</p>
         </div>
         <div class="text-white relative lg:w-1/2 lg:mt-auto px-10 lg:pr-0 lg:text-primary">
             <div class="flex gap-5 flex-col text-center lg:text-start">
-                <h3 class="text-3xl lg:text-5xl font-semibold mx-auto lg:ml-0 lg:mr-auto font-serif">Special</h3>
+                <h3 class="text-2xl lg:text-4xl font-semibold mx-auto lg:ml-0 lg:mr-auto heading_font_2 uppercase">Special</h3>
                 <p class="text-sm lg:text-[18px] mx-auto lg:ml-0 lg:mr-auto max-w-xl hidden md:block">Discover our best-selling frames, combining style and comfort for a perfect fit in every pair. Each design is thoughtfully crafted to enhance your look while ensuring all-day wearability. From timeless classics to modern silhouettes, our collection offers </p>
             </div>
             <div class="flex pb-10 pt-5 overflow-x-auto justify-start">
                 <div class="flex gap-5 mx-auto lg:mx-0">
-                    <div class="relative">
-                        <img src="images/home/glass-3.jpg" alt="" class="min-w-[16.5rem] max-w-[20rem] w-full h-full object-cover rounded-2xl aspect-6/4">
-                        <button class="absolute bottom-[7%] right-[6%] w-max pl-5 py-2 pr-2.5 rounded-full ml-auto bg-white text-primary font-semibold flex gap-10 items-center button">View More <img src="images/contact/Bag-Icon.svg" alt="" class="w-8"></button>
-                    </div>
-                    <div class="relative">
-                        <img src="images/home/glass-4.jpg" alt="" class="min-w-[16.5rem] max-w-[20rem] w-full h-full object-cover rounded-2xl aspect-6/4">
-                        <button class="absolute bottom-[7%] right-[6%] w-max pl-5 py-2 pr-2.5 rounded-full ml-auto bg-white text-primary font-semibold flex gap-10 items-center button">View More <img src="images/contact/Bag-Icon.svg" alt="" class="w-8"></button>
-                    </div>
-                    <div class="relative">
-                        <img src="images/home/glass-5.jpg" alt="" class="min-w-[16.5rem] max-w-[20rem] w-full h-full object-cover rounded-2xl aspect-6/4">
-                        <button class="absolute bottom-[7%] right-[6%] w-max pl-5 py-2 pr-2.5 rounded-full ml-auto bg-white text-primary font-semibold flex gap-10 items-center button">View More <img src="images/contact/Bag-Icon.svg" alt="" class="w-8"></button>
+                    <div class="relative rounded-2xl border border-primary/20 shadow-md transition-all" *ngFor="let product of products">
+                        <img [src]="product.images[0]" alt="" class="min-w-[16.5rem] max-w-[20rem] w-full h-full object-cover rounded-2xl aspect-6/4">
+                        <a [routerLink]="['/product', product.slug]" class="absolute bottom-[7%] bg-bg_primary/15 border border-primary/40 hover:border-primary/60 transition-all right-[6%] w-max pl-3 py-1 pr-1 rounded-full ml-auto text-primary font-semibold flex gap-6 items-center button">Explore <img src="images/contact/Bag-Icon.svg" alt="" class="w-8"></a>
                     </div>
                 </div>
             </div>  

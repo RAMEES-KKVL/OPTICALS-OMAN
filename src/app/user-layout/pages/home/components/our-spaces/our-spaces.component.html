@@ -16,9 +16,16 @@
             <div class="absolute inset-0 bg-black/60 rounded-2xl"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-primary/25 to-transparent via-transparent rounded-2xl"></div>
             <div class="relative flex p-6 flex-col gap-3 items-start">
-                <h3 class="text-2xl lg:text-3xl uppercase">{{shop.title}}</h3>
-                <p class="text-sm lg:text-[16px]">{{shop.description}}</p>
-                <button (click)="openMap(shop.shopMap)" class="button bg-white text-primary pl-4  font-semibold py-0 rounded-full flex items-center gap-5">Explore In-Store <img src="images/home/Vector.svg" class="rounded-full p-[5px]" alt=""></button>
+                <h3 class="text-2xl lg:text-3xl uppercase">{{shop.name}}</h3>
+                <div class="flex gap-2 items-center uppercase">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                    {{shop.city}}
+                </div>
+                <p class="text-sm lg:text-[16px]">{{shop.shortDescription}}</p>
+                <button (click)="openMap(shop.location)" class="button bg-white text-primary pl-4  font-semibold py-0 rounded-full flex items-center gap-5">Explore In-Store <img src="images/home/Vector.svg" class="rounded-full p-[5px]" alt=""></button>
             </div>
         </div>
     </div> 

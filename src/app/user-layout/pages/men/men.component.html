@@ -1,5 +1,5 @@
-<app-category-banner bannerImg="images/services/men-banner.jpg"></app-category-banner>
+<app-category-banner [bannerImg]="category?.image" [products]="featuredProducts"></app-category-banner>
 <app-featured-items></app-featured-items>
-<app-product-categories [products]="sun" [title]="'Sunglasses'"></app-product-categories>
-<app-product-categories [products]="computer" [title]="'COMPUTER GLASSES'"></app-product-categories>
-<app-product-categories [products]="reading" [title]="'READING GLASSES'"></app-product-categories>
+@for (g of groupedBySub; track g.title) {
+  <app-product-categories [products]="g.products" [title]="g.title"></app-product-categories>
+} 

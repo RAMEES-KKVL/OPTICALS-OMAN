@@ -29,4 +29,8 @@ export const routes: Routes = [
     path: "women",
     loadComponent: () =>import("./user-layout/pages/women/women.component").then((m) => m.WomenComponent)
   },
+  {
+    path: 'product/:slug',
+    loadComponent: () => import('./user-layout/pages/product-detail/product-detail.component').then(m => m.ProductDetailComponent),
+  }
 ];

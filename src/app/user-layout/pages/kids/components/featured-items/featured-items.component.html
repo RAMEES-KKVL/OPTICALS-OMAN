@@ -1,43 +1,11 @@
-<section class="text-primary mt-[2rem] max-w-[2000px] mx-auto relative mb-20">
-    <div class="absolute w-full h-6 lg:h-10 bg-bg_primary top-[53.5%] lg:top-[51.5%] -z-10"></div>
-    <div class="w-full px-[1rem] lg:px-[3rem] flex items-center justify-between">
-        <h3 class="text-2xl lg:text-4xl font-serif font_2 uppercase">Featured ITEMS</h3>
-        <div class="flex gap-2 self-end">
-            <button (click)="scrollPrev()" [disabled]="disablePrev" class="button border rounded-full p-[5px] rotate-180">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13.5 4.5L21 12M21 12L13.5 19.5M21 12H3" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-            <button (click)="scrollNext()" [disabled]="disableNext" class="button border rounded-full p-[5px]">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13.5 4.5L21 12M21 12L13.5 19.5M21 12H3" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-        </div>
-    </div>
-    <div class="mt-5 px-[1rem] lg:px-[3rem] flex gap-3 lg:gap-5 relative"> 
-        <div class="hidden md:flex">
-            <img src="images/services/kid-f-2.webp" alt="" class="h-full rounded-md min-w-70 xl:min-w-86 object-cover">
-        </div>
-        <div #scrollContainer class="grid scroll-smooth grid-rows-1 md:grid-rows-2 grid-flow-col gap-3 lg:gap-5 overflow-auto">
-            <img src="images/home/glass-2.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-3.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-4.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-5.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-6.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-2.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-3.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-4.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-5.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-6.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-2.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-3.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-4.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-5.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-6.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-2.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-3.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
-            <img src="images/home/glass-4.jpg" alt="" class="min-w-70 xl:min-w-86 aspect-8/6 md:aspect-9/6 rounded-sm object-cover">
+<section class="text-primary mt-[2rem] max-w-[2000px] mx-auto relative flex gap-3 pb-10">
+    <div class="px-[1rem] lg:px-[3rem]">
+        <div class="grid grid-cols-3 relative">
+            <img src="images/services/kid-featured-1.jpg" alt="" class="object-cover aspect-6/7 object-top rounded-l-2xl">
+            <img src="images/services/kid-featured-2.webp" alt="" class="object-cover aspect-6/7 object-top">
+            <img src="images/services/kid-featured-4.webp" alt="" class="object-cover aspect-6/7 object-top rounded-r-2xl">
+            <div class="absolute inset-0 bg-black/30 rounded-2xl"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent via-transparent rounded-b-2xl"></div>
         </div>
     </div>
 </section>

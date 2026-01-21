@@ -28,7 +28,7 @@
 }
 
 body {
-  font-family: "Archivo", serif;
+  font-family: "DM Sans", sans-serif;
   background-color: var(--bg_secondary);
 }
 
@@ -55,3 +55,7 @@ body {
 .font_2 {
   font-family: "Kaushan Script";
 }
+
+/* .heading_font_2 {
+  font-family: "Roboto Condensed", sans-serif;
+} */
