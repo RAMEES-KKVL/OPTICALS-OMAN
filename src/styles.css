@@ -1,18 +1,35 @@
 @import "tailwindcss";
 @theme{
     --color-primary: var(--primary);
+    --color-bg_primary: var(--bg_primary);
+    --color-bg_secondary: var(--bg_secondary);
 }
 @layer base { 
   :root {
-    /* --primary: #D0C2AD; */
-    --primary:  #b2a8a2;
-    --secondary: #fefdfc;
-    --secondary-60: rgba(240, 237, 204, 0.6);;
+    --primary: #855231;
+    --bg_primary: #A5967B;
+    --bg_secondary: white;
+    /* --bg_secondary: #E2DED7; */
   }
 
   html {
     scroll-behavior: smooth;
   }
+}
+
+:root {
+    --slide-distance: -20.65rem;
+}
+
+@media (min-width: 640px) {
+    :root {
+        --slide-distance: -32.5rem;
+    }
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: var(--bg_secondary);
 }
 
 ::-webkit-scrollbar {
@@ -34,3 +51,11 @@
 .button:active {
   transform: scale(0.9);
 }
+
+.font_2 {
+  font-family: "Kaushan Script";
+}
+
+/* .heading_font_2 {
+  font-family: "Roboto Condensed", sans-serif;
+} */

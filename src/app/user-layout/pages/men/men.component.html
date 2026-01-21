@@ -1,0 +1,5 @@
+<app-category-banner [bannerImg]="category?.image" [products]="featuredProducts"></app-category-banner>
+<app-featured-items></app-featured-items>
+@for (g of groupedBySub; track g.title) {
+  <app-product-categories [products]="g.products" [title]="g.title"></app-product-categories>
+} 

@@ -1,0 +1,33 @@
+<section class="px-[1rem] lg:px-[3rem] text-primary mt-[2rem] max-w-[2000px] mx-auto flex flex-col md:flex-row gap-10 pt-5">
+    <div class="w-150 hidden md:flex flex-col min-h-60 md:min-h-90 lg:min-h-130 justify-between  overflow-hidden">
+        <h3 class="text-lg md:text-3xl mx-auto lg:text-[40px] font-semibold uppercase">For Kids <br><span class="font_2 ml-3 md:ml-5 lg:ml-12 font-normal">Collection</span></h3>
+        <img src="images/services/cat-kid.png" alt="" class="object-cover">
+    </div>
+    <div class="md:hidden">
+        <h3 class="text-lg md:text-3xl mx-auto lg:text-[40px] font-semibold uppercase">For Kids <br><span class="font_2 ml-3 md:ml-5 lg:ml-12 font-normal">Collection</span></h3>
+    </div>
+    <div class="flex items-center gap-3 overflow-x-scroll mb-12 md:mb-0 w-full md:max-w-[65%] xl:max-w-[73%]">
+        <a [routerLink]="['/product', product.slug]" *ngFor="let product of products" class="relative group overflow-hidden min-w-84 max-w-86 lg:min-w-106 lg:max-w-108 aspect-[29/26] border cursor-pointer border-primary/20 rounded-lg transition-all duration-300">
+            <img 
+                [src]="product.images[0]"
+                class="absolute w-full h-full object-cover"
+                alt="Product"
+            />
+            <div class="absolute right-3 top-3 lg:right-[-60px] lg:group-hover:right-3 border border-bg_primary/40 transition-all duration-300 rounded-full px-[2px] py-[3px] flex flex-col gap-1 bg-black/20 backdrop-blur-md">
+                <span class="w-5 h-5 rounded-full" *ngFor="let color of product.colors" [style.background]="color"></span>
+            </div>
+
+            <div class="absolute bg-black/20 backdrop-blur-md bottom-0 left-0 w-full px-3 lg:bottom-[-60px] lg:group-hover:bottom-0 transition-all duration-300 py-2 rounded-t-md border border-bg_primary/10 border-b-transparent flex justify-between gap-4">
+                <h2 class="text-primary text-xl font-semibold leading-tight">
+                    {{product.name}}
+                </h2>
+
+                <div class="text-right flex gap-1">
+                    <div class="text-gray-400 text-primary line-through"></div>
+                    <div class="text-primary text-xl font-bold">₹{{product.salePrice}}</div>
+                </div>
+            </div>
+        </a>
+    </div>
+</section>
+<app-scroller></app-scroller>

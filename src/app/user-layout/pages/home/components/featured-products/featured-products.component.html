@@ -1,0 +1,38 @@
+<section class="px-[1rem] pb-10 lg:px-[3rem] text-primary mt-[2rem] max-w-[2000px] mx-auto">
+    <!-- grid 4 cols -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-5">
+        <!-- heading with 2 span  -->
+        <div class="lg:col-span-2 m-auto text-center">
+            <h5 class="text-sm mb-4 mr-auto lg:mr-14">FEATURED PRODUCTS</h5>
+            <h3 class="text-4xl lg:text-5xl leading-7.5 font-bold mb-4 mr-8 lg:mr-20">Shop Our Most <br>
+            <span class="font_2 text-3xl lg:text-3xl font-normal ml-24 lg:ml-52">Popular Styles</span></h3>
+            <p class="md:block px-5 sm:px-10 lg:px-5 lg:max-w-2xl text-sm lg:text-[16px] mb-4">
+                Discover our best-selling frames, combining style and comfort for a perfect fit in every pair. 
+                Each design is thoughtfully crafted to enhance your look while ensuring all-day wearability. From timeless classics to modern silhouettes, our collection offers something for every face and every personality. Made with high-quality materials, these frames blend durability with elegance — because you deserve to see and feel your best.
+            </p>
+        </div>
+        <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <!-- products -->
+            <a *ngFor="let product of products" [routerLink]="['/product', product.slug]" class="rounded-lg p-5 cursor-pointer bg-bg_primary/5 border-bg_primary/30 hover:shadow-md hover:translate-y-[-10px] shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.2)] transition-all shadow-bg_primary border flex flex-col gap-3 flex-1">
+                <img [src]="product?.images?.[0]" alt="" class="rounded-sm border border-bg_primary/40 object-cover w-full h-[80%] max-h-[12rem]">
+                <div class="flex justify-between">
+                    <h4 class="font-semibold text-lg">{{product?.name}} </h4><span>₹{{product?.salePrice}}</span>
+                </div>
+                <!-- <p class="text-sm lg:text-[16px] h-auto">{{product?.shortDescription}}</p> -->
+                <p class="text-sm lg:text-[16px] h-auto">{{product?.categoryId?.name}}</p>
+            </a>
+        </div>
+        <!-- products with 4 span  -->
+        <div class="lg:col-span-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <!-- products -->
+            <a *ngFor="let product of products2" [routerLink]="['/product', product.slug]" class="rounded-lg p-5 cursor-pointer bg-bg_primary/5 border-bg_primary/30 hover:shadow-md hover:translate-y-[-10px] shadow-[inset_0_1px_2px_0_rgba(0,0,0,0.2)] transition-all shadow-bg_primary border flex flex-col gap-3 flex-1">
+                <img [src]="product?.images?.[0]" alt="" class="rounded-sm border border-bg_primary/40 object-cover w-full h-[80%] max-h-[12rem]">
+                <div class="flex justify-between">
+                    <h4 class="font-semibold text-lg">{{product?.name}} </h4><span>${{product?.salePrice}}</span>
+                </div>
+                <p class="text-sm lg:text-[16px] h-auto">{{product?.shortDescription}}</p>
+                <p class="text-sm lg:text-[16px] h-auto">{{product?.categoryId?.name}}</p>
+            </a>
+        </div>
+    </div>
+</section>
