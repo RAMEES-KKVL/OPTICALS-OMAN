@@ -20,7 +20,7 @@ export class ProductDetailComponent {
   slug: string = '';
 
   ngOnInit() {
-    this.route.paramMap.subscribe(pm => {
+    this.route.queryParamMap.subscribe(pm => {
       const slug = pm.get('slug');
       if (!slug) return;
 

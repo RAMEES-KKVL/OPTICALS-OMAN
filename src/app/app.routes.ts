@@ -30,7 +30,8 @@ export const routes: Routes = [
     loadComponent: () =>import("./user-layout/pages/women/women.component").then((m) => m.WomenComponent)
   },
   {
-    path: 'product/:slug',
+    path: 'product',
     loadComponent: () => import('./user-layout/pages/product-detail/product-detail.component').then(m => m.ProductDetailComponent),
-  }
+  },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

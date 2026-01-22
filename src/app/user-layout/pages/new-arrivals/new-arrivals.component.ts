@@ -3,6 +3,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { ForKidsComponent } from "./components/for-kids/for-kids.component";
 import { ForWomenComponent } from "./components/for-women/for-women.component";
 import { ForMenComponent } from "./components/for-men/for-men.component";
+import { ForUnisexComponent } from './components/for-unisex/for-unisex.component';
 
 @Component({
   selector: 'app-new-arrivals',
@@ -10,7 +11,8 @@ import { ForMenComponent } from "./components/for-men/for-men.component";
     BannerComponent,
     ForKidsComponent,
     ForWomenComponent,
-    ForMenComponent
+    ForMenComponent,
+    ForUnisexComponent
 ],
   templateUrl: './new-arrivals.component.html',
   styleUrl: './new-arrivals.component.css'

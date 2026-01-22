@@ -66,27 +66,25 @@
         <div class="border-t border-b border-gray-200 py-4">
           <div class="flex items-baseline gap-3">
             <span class="text-4xl font-bold text-gray-900">
-              ₹{{ product.salePrice ?? product.price }}
+              {{ product.salePrice ?? product.price }}
             </span>
             
             <span *ngIf="product.salePrice && product.salePrice < product.price"
                   class="text-xl text-gray-400 line-through">
-              ₹{{ product.price }}
+              {{ product.price }}
             </span>
             
             <span *ngIf="product.salePrice && product.salePrice < product.price"
-                  class="px-2 py-1 bg-green-100 text-green-700 text-sm border border-green-300 font-semibold rounded">
-              Save ₹{{ product.price - product.salePrice }}
+                  class="px-2 py-1 bg-green-700 text-green-50 text-sm font-semibold rounded">
+              Save {{ product.price - product.salePrice }}
             </span>
           </div>
 
          
           <div class="mt-3">
             <span
-              class="inline-flex items-center px-3 py-1 border rounded-full text-sm font-medium"
-              [class.bg-green-100]="product.stock > 0"
+              class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium"
               [class.text-green-700]="product.stock > 0"
-              [class.border-green-300]="product.stock > 0"
               [class.bg-red-100]="product.stock <= 0"
               [class.text-red-700]="product.stock <= 0"
               [class.border-red-300]="product.stock <= 0"
@@ -148,7 +146,7 @@
 
         <div class="mt-12 border-t border-gray-200 pt-8">
           <div *ngIf="product.description" class="mb-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Description</h2>
+            <!-- <h2 class="text-2xl font-bold text-gray-900 mb-4">Description</h2> -->
             <div class="prose max-w-none text-gray-700">
               <p class="whitespace-pre-line">{{ product.description }}</p>
             </div>
@@ -185,20 +183,20 @@
       <h2 class="text-2xl font-bold text-gray-900 mb-6">You May Also Like</h2>
 
       <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-        <a *ngFor="let p of related" [routerLink]="['/product', p.slug]" class="relative group overflow-hidden aspect-[29/26] border cursor-pointer border-primary/20 rounded-lg transition-all duration-300">
+        <a *ngFor="let p of related" [routerLink]="['/product']" [queryParams]="{ slug: p.slug }" class="relative group overflow-hidden aspect-[29/26] border cursor-pointer border-primary/20 rounded-lg transition-all duration-300">
             <img 
                 [src]="p.images[0]"
                 class="absolute w-full h-full object-cover"
                 alt="Product"
             />
-            <div class="absolute bg-white/60 backdrop-blur-md bottom-0 left-0 w-full px-3 lg:bottom-[-60px] lg:group-hover:bottom-0 transition-all duration-300 py-2 rounded-t-md border border-bg_primary/10 border-b-transparent flex justify-between gap-4">
-                <h2 class="text-primary text-xl font-semibold leading-tight">
+            <div class="absolute bg-black/60 backdrop-blur-md bottom-0 left-0 w-full px-3 lg:bottom-[-100%] lg:group-hover:bottom-0 transition-all duration-300 py-4 rounded-t-md border border-bg_primary/10 border-b-transparent"></div>
+            <div class="absolute bg-gradient-to-r from-white/70 to-white/50 backdrop-blur-md bottom-0 left-0 w-full px-3 lg:bottom-[-100%] lg:group-hover:bottom-0 transition-all duration-300 py-2 rounded-t-md border border-bg_primary/10 border-b-transparent flex justify-between gap-4">
+                <h2 class="text-primary text-lg leading-tight">
                     {{p.name}}
                 </h2>
 
                 <div class="text-right flex gap-1">
-                    <div class="text-gray-400 text-primary line-through"></div>
-                    <div class="text-primary text-xl font-bold">₹{{p.salePrice}}</div>
+                    <div class="text-primary text-xl font-bold">{{p.salePrice}}</div>
                 </div>
             </div>
         </a>
